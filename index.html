@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset = "UTF-8">
+       <meta name = "Description" content = "The Tip Calculator calculates tip amount for various percentages of the cost of the service, and also provides a total amount that includes the tip. In the US, a tip of 15% of the before tax meal price is typically expected.
+">
+       <meta name = "Author" content= 
+       "Id, Phonenumber">
+       <meta name = "Keywords" content= 
+       "Tip Percentage, Total Amount, Bill Amount, Calculate Tip, Input Amount">
+       <meta name = "Viewport" content= 
+       "width=device-width, initial-scale=1.0">
+       <title>Tip Calculator</title>
+       <style>
+          body {
+            display: flex;
+            justify-content: center;
+            align-items: center;        
+            background-color: lightblue;
+          }
+          .div-style {
+            background-color: white;
+            border-radius: 10px;
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-right: 30px; 
+          }
+          .select-style {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            margin-left: 230px;
+          }
+          .input-style {
+            position: relative;
+            bottom: 20px;
+            border: 1px solid gray;
+          }
+          .button-style {
+            color: white;
+            background-color: rgb(93, 168, 193);
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: none;
+          }
+          .button-style:hover {
+            box-shadow: 1px 1px 3px rgb(93, 168, 193);
+          }
+          /*@media (min-width: 0px) and (max-width: 300px) {
+            body {
+              width: 500px;
+            }
+          }*/
+       </style>
+    </head>
+    <body>
+      <div class = "div-style">
+          <h4 style = "display: flex; justify-content: center; align-items: center; display: inline;">Bill Amount</h4>
+          <h4 style = "display: flex; justify-content: center; align-items: center; display: inline-block; margin-left: 100px">Tip Percentage</h4>
+          <br>
+          <select class = "select-style js-select">
+            <option>10&percnt;</option>
+            <option>20&percnt;</option>
+            <option>40&percnt;</option>
+            <option>60&percnt;</option>
+            <option>70&percnt;</option>
+            <option>90&percnt;</option>
+            <option>100&percnt;</option>
+          </select>
+          <br>
+          <input type = "text" class = "input-style js-input">
+          <br>
+          <button class = "button-style" onclick = "but1()">Calculate Tip</button>
+          <h4 class = "js-output">Total Amount:$0.00</h4>
+      </div>
+      <script>
+          function but1() {
+            let input = document.querySelector('.js-input');
+            let inputVal = input.value;
+            let select = document.querySelector('.js-select');
+            let selectVal = Number(select.value);
+            let output = document.querySelector('.js-output');
+            if (select.value == '10%') {
+                selectVal = 10;
+            }
+            else if (select.value == '20%') {
+                selectVal = 20;
+            }
+            else if (select.value == '40%') {
+               selectVal = 40;
+            }
+            else if (select.value == '60%') {
+               selectVal = 60;
+            }
+            else if (select.value == '70%') {
+               selectVal= 70;
+            }
+            else if (select.value == '90%') {
+               selectVal = 90;
+            }
+            else {
+                selectVal = 100;
+            }
+            console.log(inputVal);
+            console.log(selectVal);
+            let calculation = Number(inputVal) + Number(inputVal * (selectVal / 100));
+            output.innerHTML = `Total Amount:$${calculation}`;
+          }
+      </script>
+    </body>
+</html>
